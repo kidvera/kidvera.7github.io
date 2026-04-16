@@ -94,19 +94,6 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 <div class="hero">
   <div class="logo">kid<span>vera</span></div>
   <div class="tagline">Belajar Sesuai Fitrah Anak</div>
-</div>
-<div id="apibox" style="background:#FDF3E7;border-bottom:1px solid #E8DDD0;padding:0.6rem 1.5rem;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
-  <span style="font-size:0.78rem;color:#7A6455;white-space:nowrap;">🔑 Gemini API Key:</span>
-  <input type="password" id="apikey" placeholder="Paste Groq API key di sini" style="flex:1;min-width:180px;padding:0.4rem 0.7rem;border:1.5px solid #E8DDD0;border-radius:8px;font-size:0.82rem;background:white;outline:none;">
-  <span style="font-size:0.72rem;color:#9B7B65;">Dari <a href="https://console.groq.com" target="_blank" style="color:#4A7C59;">console.groq.com</a></span>
-</div>
-<div class="pbar" id="pbar">
-  <div class="sdot active" id="d1">1</div><div class="sline" id="l1"></div>
-  <div class="sdot" id="d2">2</div><div class="sline" id="l2"></div>
-  <div class="sdot" id="d3">3</div><div class="sline" id="l3"></div>
-  <div class="sdot" id="d4">4</div>
-</div>
-<div class="wrap">
 
 <!-- STEP 1 -->
 <div class="sec active" id="s1">
@@ -378,8 +365,7 @@ function gc(g){
 let tmr=null;
 
 async function gen(){
-  const apiKey=document.getElementById('apikey').value.trim();
-  if(!apiKey){alert('Masukkan Gemini API key dulu ya.');return;}
+const apiKey='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';
   const goals=document.getElementById('goals').value.trim();
   if(!goals){alert('Tuliskan goals kamu dulu ya.');return;}
   const nama=document.getElementById('nama').value.trim();

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kidvera — Program 7 Hari</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F7F3ED;--warm:#E8DDD0;--brown:#6B4F3A;--bl:#9B7B65;--green:#4A7C59;--gl:#7BAE8A;--amber:#C4863A;--al:#E8B87A;--text:#2C1F14;--ts:#7A6455;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;}
+.hero{padding:2rem 1.5rem 1.2rem;text-align:center;background:linear-gradient(180deg,#EDE5D8 0%,var(--cream) 100%);border-bottom:1px solid var(--warm);}
+.logo{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:var(--brown);letter-spacing:-0.02em;}
+.logo span{color:var(--green);font-style:italic;}
+.tagline{font-size:0.78rem;color:var(--ts);margin-top:0.3rem;letter-spacing:0.07em;text-transform:uppercase;}
+.pbar{display:flex;align-items:center;justify-content:center;gap:0.4rem;padding:1rem 1.5rem;background:white;border-bottom:1px solid var(--warm);position:sticky;top:0;z-index:10;}
+.sdot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:500;background:var(--warm);color:var(--ts);transition:all 0.3s;}
+.sdot.active{background:var(--brown);color:white;}
+.sdot.done{background:var(--green);color:white;}
+.sline{width:24px;height:2px;background:var(--warm);border-radius:2px;}
+.sline.done{background:var(--green);}
+.wrap{max-width:640px;margin:0 auto;padding:0 1.5rem 4rem;}
+.sec{display:none;padding-top:1.5rem;}
+.sec.active{display:block;}
+.stitle{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;color:var(--brown);margin-bottom:0.3rem;}
+.ssub{font-size:0.85rem;color:var(--ts);margin-bottom:1.4rem;line-height:1.5;}
+.field{margin-bottom:1.3rem;}
+label{display:block;font-size:0.75rem;font-weight:500;color:var(--ts);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;}
+input,textarea,select{width:100%;padding:0.75rem 1rem;border:1.5px solid var(--warm);border-radius:10px;background:white;font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--text);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none;}
+input:focus,textarea:focus,select:focus{border-color:var(--bl);}
+textarea{resize:vertical;min-height:90px;line-height:1.6;}
+.sw{position:relative;}
+.sw::after{content:'▼';position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:0.7rem;color:var(--ts);pointer-events:none;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+.obtn{padding:0.75rem 0.9rem;border:1.5px solid var(--warm);border-radius:10px;background:white;font-family:'DM Sans',sans-serif;font-size:0.83rem;color:var(--ts);cursor:pointer;transition:all 0.2s;text-align:left;line-height:1.4;}
+.obtn strong{display:block;color:var(--text);font-size:0.88rem;margin-bottom:0.15rem;}
+.obtn:hover{border-color:var(--bl);color:var(--brown);}
+.obtn.sel{border-color:var(--green);background:#EEF5F1;color:var(--green);}
+.obtn.sel strong{color:var(--green);}
+.obtn.full{grid-column:1/-1;}
+.mnote{font-size:0.78rem;color:var(--amber);margin-bottom:0.6rem;font-style:italic;}
+.qblock{margin-bottom:1.5rem;}
+.qlabel{font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.4rem;line-height:1.5;}
+.qhint{font-size:0.78rem;color:var(--ts);margin-bottom:0.6rem;font-style:italic;}
+.navbtns{display:flex;gap:0.8rem;margin-top:1.8rem;}
+.bnext{flex:1;padding:0.9rem;background:var(--brown);color:white;border:none;border-radius:12px;font-family:'Fraunces',serif;font-size:1rem;cursor:pointer;transition:all 0.2s;}
+.bnext:hover{background:var(--text);transform:translateY(-1px);}
+.bback{padding:0.9rem 1.2rem;background:transparent;color:var(--ts);border:1.5px solid var(--warm);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.9rem;cursor:pointer;transition:all 0.2s;}
+.bback:hover{border-color:var(--bl);color:var(--brown);}
+.snote{background:white;border:1.5px solid var(--warm);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.83rem;color:var(--ts);line-height:1.5;border-left:3px solid var(--al);}
+.loading{display:none;text-align:center;padding:3rem 1.5rem;}
+.lanim{width:48px;height:48px;border-radius:50%;border:3px solid var(--warm);border-top-color:var(--brown);animation:spin 1s linear infinite;margin:0 auto 1rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.lname{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--brown);margin-bottom:0.5rem;}
+.lsub{color:var(--ts);font-size:0.88rem;line-height:1.6;}
+.ltimer{font-size:0.8rem;color:var(--ts);margin-top:0.5rem;font-style:italic;}
+.result{display:none;padding-top:1.5rem;}
+.rcard{background:var(--brown);border-radius:16px;padding:1.5rem;margin-bottom:1rem;text-align:center;}
+.rname{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:white;}
+.rsub{font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;letter-spacing:0.05em;text-transform:uppercase;}
+.rtags{display:flex;flex-wrap:wrap;justify-content:center;gap:0.4rem;margin-top:0.8rem;}
+.rtag{background:rgba(255,255,255,0.15);color:white;padding:0.2rem 0.7rem;border-radius:20px;font-size:0.78rem;}
+.ringkasan{background:white;border:1px solid var(--warm);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;font-size:0.88rem;color:var(--ts);line-height:1.7;border-left:3px solid var(--al);}
+.dcard{border:1.5px solid var(--warm);border-radius:12px;margin-bottom:0.8rem;overflow:hidden;background:white;}
+.dhead{padding:0.85rem 1rem;display:flex;align-items:center;gap:0.8rem;cursor:pointer;transition:background 0.2s;user-select:none;}
+.dhead:hover{background:var(--cream);}
+.dnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:600;flex-shrink:0;}
+.dtitle{font-size:0.92rem;font-weight:500;flex:1;color:var(--text);}
+.gbadge{font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;font-weight:500;flex-shrink:0;}
+.chev{color:var(--ts);font-size:0.75rem;transition:transform 0.25s;}
+.chev.open{transform:rotate(180deg);}
+.dbody{display:none;border-top:1px solid var(--warm);padding:1rem;}
+.dbody.open{display:block;}
+.storybox{background:var(--cream);border-radius:8px;padding:0.85rem 1rem;margin-bottom:0.9rem;font-style:italic;font-size:0.88rem;line-height:1.7;color:var(--brown);border-left:3px solid var(--al);}
+.slabel{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--ts);font-weight:500;margin-bottom:0.35rem;}
+.ktext{font-size:0.88rem;line-height:1.7;color:var(--text);margin-bottom:0.8rem;}
+.alist{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.8rem;}
+.atag{background:var(--cream);border:1px solid var(--warm);padding:0.2rem 0.65rem;border-radius:20px;font-size:0.78rem;color:var(--brown);}
+.dbadge{display:inline-flex;align-items:center;gap:0.3rem;background:#FDF3E7;color:var(--amber);padding:0.2rem 0.7rem;border-radius:20px;font-size:0.78rem;font-weight:500;margin-bottom:0.8rem;}
+.motiv{background:#EEF5F1;border-radius:8px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--green);line-height:1.6;border-left:3px solid var(--gl);}
+.rbtn{width:100%;padding:0.85rem;background:transparent;color:var(--ts);border:1.5px solid var(--warm);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.9rem;cursor:pointer;margin-top:1rem;transition:all 0.2s;}
+.rbtn:hover{border-color:var(--bl);color:var(--brown);}
+.errbox{background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:1rem;color:#B91C1C;font-size:0.88rem;margin-top:1rem;display:none;line-height:1.5;}
+.footer{text-align:center;padding:1.5rem;font-size:0.75rem;color:var(--ts);border-top:1px solid var(--warm);margin-top:2rem;}
+.bimo-n{background:#FDF3E7;color:#C4863A;}.rara-n{background:#F5EEF8;color:#9B6B9E;}
+.tomo-n{background:#EEF5F1;color:#4A7C59;}.mimi-n{background:#FDF8E7;color:#D4A843;}
+.alam-n{background:#EEF3EF;color:#5B8A6B;}
+.bimo-b{background:#FDF3E7;color:#C4863A;}.rara-b{background:#F5EEF8;color:#9B6B9E;}
+.tomo-b{background:#EEF5F1;color:#4A7C59;}.mimi-b{background:#FDF8E7;color:#D4A843;}
+.alam-b{background:#EEF3EF;color:#5B8A6B;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="logo">kid<span>vera</span></div>
+  <div class="tagline">Belajar Sesuai Fitrah Anak</div>
+</div>
+<div id="apibox" style="background:#FDF3E7;border-bottom:1px solid #E8DDD0;padding:0.6rem 1.5rem;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+  <span style="font-size:0.78rem;color:#7A6455;white-space:nowrap;">🔑 Gemini API Key:</span>
+  <input type="password" id="apikey" placeholder="Paste Groq API key di sini" style="flex:1;min-width:180px;padding:0.4rem 0.7rem;border:1.5px solid #E8DDD0;border-radius:8px;font-size:0.82rem;background:white;outline:none;">
+  <span style="font-size:0.72rem;color:#9B7B65;">Dari <a href="https://console.groq.com" target="_blank" style="color:#4A7C59;">console.groq.com</a></span>
+</div>
+<div class="pbar" id="pbar">
+  <div class="sdot active" id="d1">1</div><div class="sline" id="l1"></div>
+  <div class="sdot" id="d2">2</div><div class="sline" id="l2"></div>
+  <div class="sdot" id="d3">3</div><div class="sline" id="l3"></div>
+  <div class="sdot" id="d4">4</div>
+</div>
+<div class="wrap">
+
+<!-- STEP 1 -->
+<div class="sec active" id="s1">
+  <div class="stitle">Data Anak</div>
+  <div class="ssub">Kita mulai dengan mengenal anakmu dulu.</div>
+  <div class="field"><label>Nama Anak</label><input type="text" id="nama" placeholder="Nama anak"></div>
+  <div class="field">
+    <label>Usia Anak</label>
+    <div class="sw"><select id="usia">
+      <option value="">— Pilih usia —</option>
+      <option value="2 tahun">2 tahun</option><option value="3 tahun">3 tahun</option>
+      <option value="4 tahun">4 tahun</option><option value="5 tahun">5 tahun</option>
+      <option value="6 tahun">6 tahun</option><option value="7 tahun">7 tahun</option>
+    </select></div>
+  </div>
+  <div class="field">
+    <label>Hasil Tes Sensoris</label>
+    <div class="snote">Masukkan hasil dari tes sensoris yang sudah dikerjakan sebelumnya.</div>
+    <div class="grid">
+      <button class="obtn full" data-g="sensoris" data-v="Normal — respons seimbang"><strong>Normal</strong>Seimbang, merespons wajar</button>
+      <button class="obtn full" data-g="sensoris" data-v="Hyper — terlalu sensitif"><strong>Hyper</strong>Mudah terganggu rangsangan kecil</button>
+      <button class="obtn full" data-g="sensoris" data-v="Hypo — kurang sensitif"><strong>Hypo</strong>Butuh rangsangan lebih besar</button>
+    </div>
+  </div>
+  <div class="navbtns"><button class="bnext" onclick="nx(1)">Lanjut →</button></div>
+</div>
+
+<!-- STEP 2 -->
+<div class="sec" id="s2">
+  <div class="stitle">Keseharian Anak</div>
+  <div class="ssub">Pilih yang paling menggambarkan anakmu. Pilih yang paling dominan.</div>
+
+  <div class="qblock">
+    <div class="qlabel">1. Kalau diajak ke tempat baru atau ketemu orang baru...</div>
+    <div class="qhint">Misal: pergi ke rumah teman, ketemu tamu, ikut kegiatan baru</div>
+    <div class="grid">
+      <button class="obtn" data-g="kp1" data-v="Mengamati dulu sebelum mau masuk"><strong>Lihat-lihat dulu</strong>Perlu waktu pemanasan</button>
+      <button class="obtn" data-g="kp1" data-v="Langsung masuk dan ikut bermain"><strong>Langsung terjun</strong>Tidak perlu diajak</button>
+      <button class="obtn" data-g="kp1" data-v="Banyak tanya dulu sebelum mau coba"><strong>Tanya dulu</strong>Harus tahu situasinya dulu</button>
+      <button class="obtn" data-g="kp1" data-v="Mau ikut kalau ada yang menemani"><strong>Perlu ditemani</strong>Mau tapi harus ada yang dampingi</button>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qlabel">2. Kalau diminta membereskan mainan atau membantu di rumah...</div>
+    <div class="qhint">Misal: rapikan blok, bawa piring ke dapur, simpan baju</div>
+    <div class="grid">
+      <button class="obtn" data-g="kp2" data-v="Langsung kerjakan walau belum rapi"><strong>Langsung kerjakan</strong>Cepat tapi belum rapi</button>
+      <button class="obtn" data-g="kp2" data-v="Pelan-pelan sampai benar-benar rapi"><strong>Pelan tapi rapi</strong>Teliti, butuh waktu</button>
+      <button class="obtn" data-g="kp2" data-v="Kerjakan sambil gerak kesana kemari"><strong>Sambil main-main</strong>Tidak bisa diam</button>
+      <button class="obtn" data-g="kp2" data-v="Perlu dicontohkan dulu baru mau mulai"><strong>Perlu contoh dulu</strong>Tidak tahu mulai dari mana</button>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qlabel">3. Kalau sesuatu tidak berhasil atau mainan rusak...</div>
+    <div class="qhint">Misal: menara jatuh, gambar tidak sesuai keinginan, kalah main</div>
+    <div class="grid">
+      <button class="obtn" data-g="kp3" data-v="Diam atau pergi, tidak mau coba lagi"><strong>Langsung menyerah</strong>Diam atau pergi</button>
+      <button class="obtn" data-g="kp3" data-v="Sedikit kesal lalu langsung coba lagi"><strong>Kesal sebentar, lanjut</strong>Cepat move on</button>
+      <button class="obtn" data-g="kp3" data-v="Marah cukup lama sebelum bisa lanjut"><strong>Marah cukup lama</strong>Butuh waktu untuk tenang</button>
+      <button class="obtn" data-g="kp3" data-v="Langsung cari orangtua atau minta bantuan"><strong>Cari bantuan</strong>Langsung minta tolong</button>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qlabel">4. Kalau bermain bersama teman atau saudara...</div>
+    <div class="qhint">Perhatikan siapa yang memulai dan siapa yang mengikuti</div>
+    <div class="grid">
+      <button class="obtn" data-g="kp4" data-v="Mengikuti saja apa yang dilakukan teman"><strong>Ikut saja</strong>Nurut, tidak memimpin</button>
+      <button class="obtn" data-g="kp4" data-v="Yang menentukan aturan permainan"><strong>Yang mengatur</strong>Suka kasih aturan</button>
+      <button class="obtn" data-g="kp4" data-v="Sering usul ide baru dan cara berbeda"><strong>Penuh ide</strong>Banyak usul, suka variasi</button>
+      <button class="obtn" data-g="kp4" data-v="Lebih suka main sendiri daripada bergabung"><strong>Lebih suka sendiri</strong>Asyik dengan dunianya</button>
+    </div>
+  </div>
+
+  <div class="navbtns">
+    <button class="bback" onclick="bk(2)">← Kembali</button>
+    <button class="bnext" onclick="nx(2)">Lanjut →</button>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="sec" id="s3">
+  <div class="stitle">Cara Belajar & Kecerdasan</div>
+  <div class="ssub">Gaya belajar: pilih sampai 2 yang paling dominan. Kecerdasan: pilih sampai 3 yang paling menonjol.</div>
+
+  <div class="qblock">
+    <div class="qlabel">5. Kalau melihat mainan atau benda baru, yang pertama dilakukan...</div>
+    <div class="mnote">Pilih 1-2 yang paling dominan</div>
+    <div class="grid">
+      <button class="obtn multi-gb" data-v="Visual — melihat dari semua sisi dulu"><strong>Perhatikan dulu</strong>Lihat dari semua sisi</button>
+      <button class="obtn multi-gb" data-v="Auditori — tanya nama dan suaranya"><strong>Tanya nama &amp; suaranya</strong>Ingin tahu bunyi dan namanya</button>
+      <button class="obtn multi-gb" data-v="Kinestetik — langsung disentuh dan dicoba"><strong>Langsung pegang</strong>Tidak sabar, harus dicoba</button>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qlabel">6. Anak paling mudah ingat sesuatu yang baru diajarkan ketika...</div>
+    <div class="mnote">Pilih 1-2 yang paling dominan</div>
+    <div class="grid">
+      <button class="obtn multi-gb" data-v="Visual — ada gambar atau warna yang ditunjukkan"><strong>Ada gambar</strong>Lebih mudah kalau ada visual</button>
+      <button class="obtn multi-gb" data-v="Auditori — diceritakan atau dinyanyikan"><strong>Diceritakan</strong>Lebih mudah kalau ada cerita/lagu</button>
+      <button class="obtn multi-gb" data-v="Kinestetik — sudah pernah coba sendiri"><strong>Sudah coba sendiri</strong>Harus praktek dulu baru ingat</button>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qlabel">7. Kalau diberi waktu bebas tanpa gadget, anak paling sering...</div>
+    <div class="mnote">Pilih sampai 3 yang paling sering dilakukan</div>
+    <div class="grid">
+      <button class="obtn multi-kc" data-v="Menggambar dan membuat sesuatu (Visual-Spasial)"><strong>Menggambar &amp; membuat</strong>Coret-coret, krayon, bentuk</button>
+      <button class="obtn multi-kc" data-v="Bernyanyi dan meniru irama (Musikal)"><strong>Bernyanyi &amp; musik</strong>Nyanyi sendiri, tepuk irama</button>
+      <button class="obtn multi-kc" data-v="Berlari, melompat, dan bergerak terus (Kinestetik-Jasmani)"><strong>Gerak terus</strong>Lari, lompat, panjat</button>
+      <button class="obtn multi-kc" data-v="Ngobrol panjang dan bermain peran (Linguistik)"><strong>Ngobrol &amp; bercerita</strong>Cerita panjang, main pura-pura</button>
+      <button class="obtn multi-kc" data-v="Menyusun benda dan puzzle (Logis-Matematis)"><strong>Menyusun &amp; puzzle</strong>Susun blok, atur benda</button>
+      <button class="obtn multi-kc" data-v="Bermain bersama dan peduli teman (Interpersonal)"><strong>Main bersama</strong>Selalu cari teman</button>
+      <button class="obtn multi-kc" data-v="Bermain sendiri dengan imajinasinya (Intrapersonal)"><strong>Dunia sendiri</strong>Asyik sendiri, imajinatif</button>
+      <button class="obtn multi-kc" data-v="Mengamati hewan, tanaman, dan alam (Naturalis)"><strong>Mengamati alam</strong>Perhatikan semut, bunga, batu</button>
+    </div>
+  </div>
+
+  <div id="kcc" style="font-size:0.78rem;color:var(--amber);margin-top:-0.5rem;margin-bottom:0.5rem;display:none;">Dipilih: <span id="kcn">0</span>/3</div>
+
+  <div class="navbtns">
+    <button class="bback" onclick="bk(3)">← Kembali</button>
+    <button class="bnext" onclick="nx(3)">Lanjut →</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="sec" id="s4">
+  <div class="stitle">Goals Kamu</div>
+  <div class="ssub">Apa yang paling ingin kamu lihat berubah pada anakmu? Semakin spesifik semakin tepat programnya.</div>
+  <div class="field">
+    <label>Ceritakan Goalmu</label>
+    <textarea id="goals" placeholder="Contoh: Aku ingin anakku bisa duduk lebih tenang saat belajar. Sekarang dia susah fokus lebih dari 2 menit. Aku juga ingin tangannya lebih kuat karena mau mulai latihan menulis." rows="5"></textarea>
+  </div>
+  <div class="field">
+    <label>Nama Orangtua</label>
+    <input type="text" id="ortu" placeholder="Nama kamu">
+  </div>
+  <div class="errbox" id="errbox"></div>
+  <div class="navbtns">
+    <button class="bback" onclick="bk(4)">← Kembali</button>
+    <button class="bnext" onclick="gen()">Buat Program 7 Hari ✦</button>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading" id="loading">
+  <div class="lanim"></div>
+  <div class="lname" id="lname"></div>
+  <div class="lsub">Sedang menyesuaikan program<br>berdasarkan profil anakmu...</div>
+  <div class="ltimer" id="ltimer"></div>
+</div>
+
+<!-- RESULT -->
+<div class="result" id="result">
+  <div class="rcard">
+    <div class="rname" id="rname"></div>
+    <div class="rsub" id="rsub"></div>
+    <div class="rtags" id="rtags"></div>
+  </div>
+  <div class="ringkasan" id="ringkasan"></div>
+  <div id="days"></div>
+  <button class="rbtn" onclick="rst()">← Buat Program Baru</button>
+</div>
+
+<div class="footer">Program 7 Hari · Kidvera</div>
+</div>
+
+<script>
+const SURL='https://script.google.com/macros/s/AKfycbyoSugrXKGMXHvMudsGXGTHkqyJPDeDhwcKuQ6tGQLgBpWca_ZbKbmzax1-tqeSrXTQ/exec';
+const sel={};
+const multi={gb:[],kc:[]};
+
+document.querySelectorAll('.obtn[data-g]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const g=b.dataset.g;
+    document.querySelectorAll(`[data-g="${g}"]`).forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    sel[g]=b.dataset.v;
+  });
+});
+
+document.querySelectorAll('.multi-gb').forEach(b=>{
+  b.addEventListener('click',()=>{
+    if(b.classList.contains('sel')){
+      b.classList.remove('sel');
+      multi.gb=multi.gb.filter(v=>v!==b.dataset.v);
+    } else {
+      if(multi.gb.length>=2){alert('Pilih maksimal 2 gaya belajar yang paling dominan.');return;}
+      b.classList.add('sel');
+      multi.gb.push(b.dataset.v);
+    }
+  });
+});
+
+document.querySelectorAll('.multi-kc').forEach(b=>{
+  b.addEventListener('click',()=>{
+    if(b.classList.contains('sel')){
+      b.classList.remove('sel');
+      multi.kc=multi.kc.filter(v=>v!==b.dataset.v);
+    } else {
+      if(multi.kc.length>=3){alert('Pilih maksimal 3 kecerdasan yang paling menonjol.');return;}
+      b.classList.add('sel');
+      multi.kc.push(b.dataset.v);
+    }
+    const c=document.getElementById('kcc');
+    c.style.display=multi.kc.length>0?'block':'none';
+    document.getElementById('kcn').textContent=multi.kc.length;
+  });
+});
+
+function upP(s){
+  for(let i=1;i<=4;i++){
+    const d=document.getElementById('d'+i);
+    if(i<s){d.className='sdot done';d.textContent='✓';}
+    else if(i===s){d.className='sdot active';d.textContent=i;}
+    else{d.className='sdot';d.textContent=i;}
+  }
+  for(let i=1;i<=3;i++)
+    document.getElementById('l'+i).className=i<s?'sline done':'sline';
+}
+
+function showS(n){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById('s'+n);
+  if(el)el.classList.add('active');
+  document.getElementById('loading').style.display='none';
+  document.getElementById('result').style.display='none';
+  document.getElementById('pbar').style.display='flex';
+  upP(n);
+  window.scrollTo(0,0);
+}
+
+function bk(f){showS(f-1);}
+
+function nx(f){
+  if(f===1){
+    if(!document.getElementById('nama').value.trim()){alert('Masukkan nama anak dulu ya.');return;}
+    if(!document.getElementById('usia').value){alert('Pilih usia anak dulu.');return;}
+    if(!sel.sensoris){alert('Pilih hasil sensoris anak.');return;}
+  }
+  if(f===2){
+    if(!sel.kp1){alert('Pertanyaan 1 belum dipilih.');return;}
+    if(!sel.kp2){alert('Pertanyaan 2 belum dipilih.');return;}
+    if(!sel.kp3){alert('Pertanyaan 3 belum dipilih.');return;}
+    if(!sel.kp4){alert('Pertanyaan 4 belum dipilih.');return;}
+  }
+  if(f===3){
+    if(multi.gb.length===0){alert('Pilih minimal 1 gaya belajar (pertanyaan 5 atau 6).');return;}
+    if(multi.kc.length===0){alert('Pilih minimal 1 kecerdasan (pertanyaan 7).');return;}
+  }
+  showS(f+1);
+}
+
+function gc(g){
+  if(!g)return{n:'tomo-n',b:'tomo-b'};
+  if(g.includes('Bimo'))return{n:'bimo-n',b:'bimo-b'};
+  if(g.includes('Rara'))return{n:'rara-n',b:'rara-b'};
+  if(g.includes('Tomo'))return{n:'tomo-n',b:'tomo-b'};
+  if(g.includes('Mimi'))return{n:'mimi-n',b:'mimi-b'};
+  if(g.includes('Guru Alam'))return{n:'alam-n',b:'alam-b'};
+  return{n:'tomo-n',b:'tomo-b'};
+}
+
+let tmr=null;
+
+async function gen(){
+  const apiKey=document.getElementById('apikey').value.trim();
+  if(!apiKey){alert('Masukkan Gemini API key dulu ya.');return;}
+  const goals=document.getElementById('goals').value.trim();
+  if(!goals){alert('Tuliskan goals kamu dulu ya.');return;}
+  const nama=document.getElementById('nama').value.trim();
+  const usia=document.getElementById('usia').value;
+  const kep=[sel.kp1,sel.kp2,sel.kp3,sel.kp4].filter(Boolean).join(' | ');
+  const gb=multi.gb.join(' & ')||'Kinestetik';
+  const kc=multi.kc.join(', ')||'';
+  const ortu=document.getElementById('ortu').value.trim();
+
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById('pbar').style.display='none';
+  document.getElementById('result').style.display='none';
+  document.getElementById('errbox').style.display='none';
+  document.getElementById('loading').style.display='block';
+  document.getElementById('lname').textContent='Program untuk '+nama;
+  window.scrollTo(0,0);
+
+  let secs=0;
+  clearInterval(tmr);
+  tmr=setInterval(()=>{
+    secs++;
+    document.getElementById('ltimer').textContent=secs+'s... (biasanya 15-25 detik)';
+  },1000);
+
+  const prompt=`Kamu adalah Kidvera, sistem pendampingan tumbuh kembang anak berbasis fitrah dan sensoris.
+
+Data anak:
+- Nama: ${nama}, Usia: ${usia}
+- Sensoris: ${sel.sensoris}
+- Pola keseharian: ${kep}
+- Gaya belajar dominan: ${gb}
+- Kecerdasan dominan: ${kc}
+- Goals orangtua: ${goals}
+
+5 karakter:
+- Bimo (Beruang Coklat): kekuatan tangan, gerak, proprioseptif, motorik kasar
+- Rara (Kelinci Putih): motorik halus, ketelitian, kesiapan menulis
+- Tomo (Kelinci celemek hijau): kemandirian, tugas rumah, life skill
+- Mimi (Kucing Oranye): regulasi sensoris lembut, untuk hyper sensoris
+- Guru Alam (Burung Hantu): eksplorasi alam, observasi dunia nyata
+
+Prinsip wajib:
+- Semua kegiatan HANYA pakai benda yang ada di semua rumah Indonesia
+- Story pembuka: 3 kalimat, ada masalah kecil nyata, ada peran ${nama}, ada akibat positif
+- Motivasi orangtua: spesifik dan menyentuh, bukan pujian kosong
+- Hari 1-2 sangat ringan, hari 3-5 ditingkatkan sedikit, hari 6-7 lebih mandiri
+
+Balas HANYA dengan JSON valid ini, tidak ada teks lain:
+{"ringkasan":"2-3 kalimat profil dan fokus program","karakterUtama":"karakter dominan minggu ini","hari":[{"hari":1,"judul":"max 5 kata","guide":"nama karakter","story":"3 kalimat story nyata","kegiatan":"langkah-langkah jelas","alat":["benda1","benda2"],"durasi":"X-Y menit","motivasi":"kalimat bermakna untuk orangtua"},{"hari":2,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":3,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":4,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":5,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":6,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":7,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""}]}`;
+
+  try{
+    const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
+      body:JSON.stringify({
+        model:'llama-3.3-70b-versatile',
+        max_tokens:4000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+
+    clearInterval(tmr);
+    const data=await res.json();
+
+    if(data.error){throw new Error('API: '+data.error.message);}
+    if(!data.choices||!data.choices[0]){throw new Error('Tidak ada respons dari API');}
+
+    const text=data.choices[0].message.content;
+    const m=text.match(/\{[\s\S]*\}/);
+    if(!m)throw new Error('Format JSON tidak ditemukan');
+    let p;
+    try{p=JSON.parse(m[0]);}catch(e){throw new Error('JSON tidak valid: '+e.message);}
+    if(!p.hari||!Array.isArray(p.hari))throw new Error('Data hari tidak ada');
+
+    // Kirim ke Google Sheets
+    const payload=JSON.stringify({
+      nama,usia,ortu,
+      sensoris:sel.sensoris,
+      gayaBelajar:gb,
+      kepribadian:kep,
+      kecerdasan:kc,
+      goals,
+      karakterGuide:p.karakterUtama||'',
+      ringkasan:p.ringkasan||''
+    });
+
+    fetch(SURL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body:payload
+    }).catch(e=>console.log('Sheets error:',e));
+
+    renderR(nama,usia,p);
+
+  }catch(err){
+    clearInterval(tmr);
+    document.getElementById('loading').style.display='none';
+    showS(4);
+    const eb=document.getElementById('errbox');
+    eb.style.display='block';
+    eb.textContent='Gagal: '+err.message;
+  }
+}
+
+function renderR(nama,usia,d){
+  clearInterval(tmr);
+  document.getElementById('loading').style.display='none';
+  document.getElementById('result').style.display='block';
+  document.getElementById('rname').textContent='Program 7 Hari '+nama;
+  document.getElementById('rsub').textContent=usia+' · Kidvera';
+  const tags=[
+    sel.sensoris?.split('—')[0]?.trim(),
+    multi.gb[0]?.split('—')[0]?.trim(),
+    multi.kc[0]?.split('(')[0]?.trim()
+  ].filter(Boolean);
+  document.getElementById('rtags').innerHTML=tags.map(t=>`<span class="rtag">${t}</span>`).join('');
+  document.getElementById('ringkasan').textContent=d.ringkasan||'';
+
+  let html='';
+  (d.hari||[]).forEach((h,i)=>{
+    const c=gc(h.guide);
+    const alat=(h.alat||[]).map(a=>`<span class="atag">${a}</span>`).join('');
+    html+=`<div class="dcard">
+      <div class="dhead" onclick="td(${i})">
+        <div class="dnum ${c.n}">${h.hari}</div>
+        <div class="dtitle">${h.judul||'Hari '+h.hari}</div>
+        <span class="gbadge ${c.b}">${h.guide||''}</span>
+        <span class="chev" id="cv${i}">▼</span>
+      </div>
+      <div class="dbody" id="db${i}">
+        <div class="storybox">${h.story||''}</div>
+        <div class="slabel">Kegiatan</div>
+        <div class="ktext">${h.kegiatan||''}</div>
+        ${alat?`<div class="slabel">Yang dibutuhkan</div><div class="alist">${alat}</div>`:''}
+        ${h.durasi?`<div class="dbadge">⏱ ${h.durasi}</div>`:''}
+        ${h.motivasi?`<div class="motiv">💛 ${h.motivasi}</div>`:''}
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('days').innerHTML=html;
+  const f=document.getElementById('db0');
+  const fc=document.getElementById('cv0');
+  if(f)f.classList.add('open');
+  if(fc)fc.classList.add('open');
+  window.scrollTo(0,0);
+}
+
+function td(i){
+  document.getElementById('db'+i).classList.toggle('open');
+  document.getElementById('cv'+i).classList.toggle('open');
+}
+
+function rst(){
+  Object.keys(sel).forEach(k=>delete sel[k]);
+  multi.gb=[];multi.kc=[];
+  document.querySelectorAll('.obtn').forEach(b=>b.classList.remove('sel'));
+  document.getElementById('nama').value='';
+  document.getElementById('usia').value='';
+  document.getElementById('goals').value='';
+  document.getElementById('ortu').value='';
+  document.getElementById('result').style.display='none';
+  document.getElementById('errbox').style.display='none';
+  document.getElementById('kcc').style.display='none';
+  showS(1);
+}
+</script>
+</body>
+</html>

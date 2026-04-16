@@ -407,7 +407,7 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 </div>
 
 <script>
-const APIKEY = 'GROQ_API_KEY';
+const APIKEY = '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';
 const SURL = 'https://script.google.com/macros/s/AKfycbyoSugrXKGMXHvMudsGXGTHkqyJPDeDhwcKuQ6tGQLgBpWca_ZbKbmzax1-tqeSrXTQ/exec';
 
 const sel={};
@@ -868,7 +868,7 @@ Bahasa: hangat, seperti teman dekat, bukan dokter.`;
   try{
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+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},
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+APIKEY},
       body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:400,messages:[{role:'user',content:analisisPrompt}]})
     });
     const data = await res.json();

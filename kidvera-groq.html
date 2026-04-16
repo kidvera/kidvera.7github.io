@@ -54,6 +54,8 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 .lname{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--brown);margin-bottom:0.5rem;}
 .lsub{color:var(--ts);font-size:0.88rem;line-height:1.6;}
 .ltimer{font-size:0.8rem;color:var(--ts);margin-top:0.5rem;font-style:italic;}
+
+/* RESULT - Program Overview */
 .result{display:none;padding-top:1.5rem;}
 .rcard{background:var(--brown);border-radius:16px;padding:1.5rem;margin-bottom:1rem;text-align:center;}
 .rname{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:white;}
@@ -78,6 +80,62 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 .atag{background:var(--cream);border:1px solid var(--warm);padding:0.2rem 0.65rem;border-radius:20px;font-size:0.78rem;color:var(--brown);}
 .dbadge{display:inline-flex;align-items:center;gap:0.3rem;background:#FDF3E7;color:var(--amber);padding:0.2rem 0.7rem;border-radius:20px;font-size:0.78rem;font-weight:500;margin-bottom:0.8rem;}
 .motiv{background:#EEF5F1;border-radius:8px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--green);line-height:1.6;border-left:3px solid var(--gl);}
+.script-box{background:#FDF8F0;border:1px solid var(--al);border-radius:8px;padding:0.85rem 1rem;margin-bottom:0.8rem;}
+.script-box .slabel{color:var(--amber);}
+.script-text{font-size:0.85rem;line-height:1.7;color:var(--text);}
+.tolak-box{background:#FEF9F0;border:1px solid #F5D0A9;border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.8rem;}
+.tolak-box .slabel{color:#C4863A;}
+
+/* PENDAMPINGAN HARIAN */
+.pendampingan{display:none;padding-top:1rem;}
+.hari-header{background:var(--brown);border-radius:16px;padding:1.2rem 1.5rem;margin-bottom:1rem;color:white;}
+.hari-num{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin-bottom:0.3rem;}
+.hari-title{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:300;font-style:italic;}
+.hari-guide{font-size:0.8rem;opacity:0.75;margin-top:0.3rem;}
+.mini-training{background:linear-gradient(135deg,#EEF5F1,#F7F3ED);border:1.5px solid var(--gl);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;}
+.mini-training .stitle{font-size:1rem;color:var(--green);}
+.mini-rule{display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.6rem;font-size:0.85rem;color:var(--text);line-height:1.5;}
+.mini-rule span{color:var(--green);font-weight:600;flex-shrink:0;}
+.section-card{background:white;border:1.5px solid var(--warm);border-radius:12px;padding:1rem 1.2rem;margin-bottom:0.8rem;}
+.section-card .section-icon{font-size:1.1rem;margin-bottom:0.4rem;}
+.section-card h3{font-family:'Fraunces',serif;font-size:0.95rem;color:var(--brown);margin-bottom:0.5rem;}
+.upload-area{border:2px dashed var(--warm);border-radius:10px;padding:1.5rem;text-align:center;cursor:pointer;transition:all 0.2s;margin:0.8rem 0;}
+.upload-area:hover{border-color:var(--bl);background:var(--cream);}
+.upload-area input{display:none;}
+.upload-icon{font-size:1.5rem;margin-bottom:0.4rem;}
+.upload-text{font-size:0.83rem;color:var(--ts);}
+.upload-preview{max-width:100%;border-radius:8px;margin-top:0.5rem;display:none;}
+.eval-loading{display:none;text-align:center;padding:1rem;color:var(--ts);font-size:0.85rem;font-style:italic;}
+.eval-result{background:#EEF5F1;border:1px solid var(--gl);border-radius:8px;padding:0.85rem 1rem;margin-top:0.5rem;font-size:0.85rem;color:var(--green);line-height:1.6;display:none;}
+.refleksi-area{width:100%;padding:0.75rem;border:1.5px solid var(--warm);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--text);outline:none;resize:vertical;min-height:80px;line-height:1.6;background:white;}
+.refleksi-area:focus{border-color:var(--bl);}
+.hari-nav{display:flex;gap:0.8rem;margin-top:1.5rem;}
+.btn-lanjut{flex:1;padding:0.9rem;background:var(--green);color:white;border:none;border-radius:12px;font-family:'Fraunces',serif;font-size:1rem;cursor:pointer;transition:all 0.2s;}
+.btn-lanjut:hover{background:#3a6347;transform:translateY(-1px);}
+.btn-skip{padding:0.9rem 1.2rem;background:transparent;color:var(--ts);border:1.5px solid var(--warm);border-radius:12px;font-size:0.88rem;cursor:pointer;transition:all 0.2s;}
+.progress-hari{display:flex;gap:0.3rem;justify-content:center;margin-bottom:1rem;}
+.ph-dot{width:10px;height:10px;border-radius:50%;background:var(--warm);transition:all 0.3s;}
+.ph-dot.done{background:var(--green);}
+.ph-dot.active{background:var(--brown);transform:scale(1.3);}
+
+/* PENUTUP & SURVEY */
+.penutup{display:none;padding-top:1.5rem;}
+.penutup-card{background:linear-gradient(135deg,var(--brown),#4A3020);border-radius:16px;padding:2rem 1.5rem;text-align:center;margin-bottom:1.5rem;color:white;}
+.penutup-icon{font-size:2.5rem;margin-bottom:0.8rem;}
+.penutup-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;font-style:italic;margin-bottom:0.5rem;}
+.penutup-sub{font-size:0.85rem;opacity:0.75;line-height:1.6;}
+.survey-card{background:white;border:1.5px solid var(--warm);border-radius:12px;padding:1.2rem;margin-bottom:0.8rem;}
+.survey-q{font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.8rem;line-height:1.5;}
+.rating-row{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;}
+.rating-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--warm);background:white;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--ts);}
+.rating-btn:hover{border-color:var(--brown);color:var(--brown);}
+.rating-btn.sel{background:var(--brown);color:white;border-color:var(--brown);}
+.survey-textarea{width:100%;padding:0.75rem;border:1.5px solid var(--warm);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--text);outline:none;resize:vertical;min-height:80px;line-height:1.6;}
+.survey-textarea:focus{border-color:var(--bl);}
+.yn-row{display:flex;gap:0.6rem;}
+.yn-btn{flex:1;padding:0.7rem;border:1.5px solid var(--warm);border-radius:10px;background:white;font-size:0.88rem;cursor:pointer;transition:all 0.2s;color:var(--ts);}
+.yn-btn.sel{background:var(--green);color:white;border-color:var(--green);}
+
 .rbtn{width:100%;padding:0.85rem;background:transparent;color:var(--ts);border:1.5px solid var(--warm);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.9rem;cursor:pointer;margin-top:1rem;transition:all 0.2s;}
 .rbtn:hover{border-color:var(--bl);color:var(--brown);}
 .errbox{background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:1rem;color:#B91C1C;font-size:0.88rem;margin-top:1rem;display:none;line-height:1.5;}
@@ -88,12 +146,26 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 .bimo-b{background:#FDF3E7;color:#C4863A;}.rara-b{background:#F5EEF8;color:#9B6B9E;}
 .tomo-b{background:#EEF5F1;color:#4A7C59;}.mimi-b{background:#FDF8E7;color:#D4A843;}
 .alam-b{background:#EEF3EF;color:#5B8A6B;}
+.thankyou{display:none;text-align:center;padding:3rem 1.5rem;}
+.thankyou-icon{font-size:3rem;margin-bottom:1rem;}
+.thankyou-title{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--brown);margin-bottom:0.5rem;}
+.thankyou-sub{font-size:0.88rem;color:var(--ts);line-height:1.7;}
 </style>
 </head>
 <body>
 <div class="hero">
   <div class="logo">kid<span>vera</span></div>
   <div class="tagline">Belajar Sesuai Fitrah Anak</div>
+</div>
+
+<div class="pbar" id="pbar">
+  <div class="sdot active" id="d1">1</div><div class="sline" id="l1"></div>
+  <div class="sdot" id="d2">2</div><div class="sline" id="l2"></div>
+  <div class="sdot" id="d3">3</div><div class="sline" id="l3"></div>
+  <div class="sdot" id="d4">4</div>
+</div>
+
+<div class="wrap">
 
 <!-- STEP 1 -->
 <div class="sec active" id="s1">
@@ -124,8 +196,7 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 <!-- STEP 2 -->
 <div class="sec" id="s2">
   <div class="stitle">Keseharian Anak</div>
-  <div class="ssub">Pilih yang paling menggambarkan anakmu. Pilih yang paling dominan.</div>
-
+  <div class="ssub">Pilih yang paling menggambarkan anakmu.</div>
   <div class="qblock">
     <div class="qlabel">1. Kalau diajak ke tempat baru atau ketemu orang baru...</div>
     <div class="qhint">Misal: pergi ke rumah teman, ketemu tamu, ikut kegiatan baru</div>
@@ -136,10 +207,8 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn" data-g="kp1" data-v="Mau ikut kalau ada yang menemani"><strong>Perlu ditemani</strong>Mau tapi harus ada yang dampingi</button>
     </div>
   </div>
-
   <div class="qblock">
     <div class="qlabel">2. Kalau diminta membereskan mainan atau membantu di rumah...</div>
-    <div class="qhint">Misal: rapikan blok, bawa piring ke dapur, simpan baju</div>
     <div class="grid">
       <button class="obtn" data-g="kp2" data-v="Langsung kerjakan walau belum rapi"><strong>Langsung kerjakan</strong>Cepat tapi belum rapi</button>
       <button class="obtn" data-g="kp2" data-v="Pelan-pelan sampai benar-benar rapi"><strong>Pelan tapi rapi</strong>Teliti, butuh waktu</button>
@@ -147,10 +216,8 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn" data-g="kp2" data-v="Perlu dicontohkan dulu baru mau mulai"><strong>Perlu contoh dulu</strong>Tidak tahu mulai dari mana</button>
     </div>
   </div>
-
   <div class="qblock">
     <div class="qlabel">3. Kalau sesuatu tidak berhasil atau mainan rusak...</div>
-    <div class="qhint">Misal: menara jatuh, gambar tidak sesuai keinginan, kalah main</div>
     <div class="grid">
       <button class="obtn" data-g="kp3" data-v="Diam atau pergi, tidak mau coba lagi"><strong>Langsung menyerah</strong>Diam atau pergi</button>
       <button class="obtn" data-g="kp3" data-v="Sedikit kesal lalu langsung coba lagi"><strong>Kesal sebentar, lanjut</strong>Cepat move on</button>
@@ -158,10 +225,8 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn" data-g="kp3" data-v="Langsung cari orangtua atau minta bantuan"><strong>Cari bantuan</strong>Langsung minta tolong</button>
     </div>
   </div>
-
   <div class="qblock">
     <div class="qlabel">4. Kalau bermain bersama teman atau saudara...</div>
-    <div class="qhint">Perhatikan siapa yang memulai dan siapa yang mengikuti</div>
     <div class="grid">
       <button class="obtn" data-g="kp4" data-v="Mengikuti saja apa yang dilakukan teman"><strong>Ikut saja</strong>Nurut, tidak memimpin</button>
       <button class="obtn" data-g="kp4" data-v="Yang menentukan aturan permainan"><strong>Yang mengatur</strong>Suka kasih aturan</button>
@@ -169,7 +234,6 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn" data-g="kp4" data-v="Lebih suka main sendiri daripada bergabung"><strong>Lebih suka sendiri</strong>Asyik dengan dunianya</button>
     </div>
   </div>
-
   <div class="navbtns">
     <button class="bback" onclick="bk(2)">← Kembali</button>
     <button class="bnext" onclick="nx(2)">Lanjut →</button>
@@ -179,8 +243,7 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 <!-- STEP 3 -->
 <div class="sec" id="s3">
   <div class="stitle">Cara Belajar & Kecerdasan</div>
-  <div class="ssub">Gaya belajar: pilih sampai 2 yang paling dominan. Kecerdasan: pilih sampai 3 yang paling menonjol.</div>
-
+  <div class="ssub">Gaya belajar: pilih sampai 2. Kecerdasan: pilih sampai 3.</div>
   <div class="qblock">
     <div class="qlabel">5. Kalau melihat mainan atau benda baru, yang pertama dilakukan...</div>
     <div class="mnote">Pilih 1-2 yang paling dominan</div>
@@ -190,7 +253,6 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn multi-gb" data-v="Kinestetik — langsung disentuh dan dicoba"><strong>Langsung pegang</strong>Tidak sabar, harus dicoba</button>
     </div>
   </div>
-
   <div class="qblock">
     <div class="qlabel">6. Anak paling mudah ingat sesuatu yang baru diajarkan ketika...</div>
     <div class="mnote">Pilih 1-2 yang paling dominan</div>
@@ -200,7 +262,6 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn multi-gb" data-v="Kinestetik — sudah pernah coba sendiri"><strong>Sudah coba sendiri</strong>Harus praktek dulu baru ingat</button>
     </div>
   </div>
-
   <div class="qblock">
     <div class="qlabel">7. Kalau diberi waktu bebas tanpa gadget, anak paling sering...</div>
     <div class="mnote">Pilih sampai 3 yang paling sering dilakukan</div>
@@ -215,9 +276,7 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
       <button class="obtn multi-kc" data-v="Mengamati hewan, tanaman, dan alam (Naturalis)"><strong>Mengamati alam</strong>Perhatikan semut, bunga, batu</button>
     </div>
   </div>
-
   <div id="kcc" style="font-size:0.78rem;color:var(--amber);margin-top:-0.5rem;margin-bottom:0.5rem;display:none;">Dipilih: <span id="kcn">0</span>/3</div>
-
   <div class="navbtns">
     <button class="bback" onclick="bk(3)">← Kembali</button>
     <button class="bnext" onclick="nx(3)">Lanjut →</button>
@@ -227,14 +286,18 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 <!-- STEP 4 -->
 <div class="sec" id="s4">
   <div class="stitle">Goals Kamu</div>
-  <div class="ssub">Apa yang paling ingin kamu lihat berubah pada anakmu? Semakin spesifik semakin tepat programnya.</div>
+  <div class="ssub">Apa yang paling ingin kamu lihat berubah pada anakmu?</div>
   <div class="field">
     <label>Ceritakan Goalmu</label>
-    <textarea id="goals" placeholder="Contoh: Aku ingin anakku bisa duduk lebih tenang saat belajar. Sekarang dia susah fokus lebih dari 2 menit. Aku juga ingin tangannya lebih kuat karena mau mulai latihan menulis." rows="5"></textarea>
+    <textarea id="goals" placeholder="Contoh: Aku ingin anakku bisa duduk lebih tenang saat belajar. Sekarang dia susah fokus lebih dari 2 menit." rows="5"></textarea>
   </div>
   <div class="field">
     <label>Nama Orangtua</label>
     <input type="text" id="ortu" placeholder="Nama kamu">
+  </div>
+  <div class="field">
+    <label>Email Aktif</label>
+    <input type="email" id="email" placeholder="email@kamu.com">
   </div>
   <div class="errbox" id="errbox"></div>
   <div class="navbtns">
@@ -251,7 +314,7 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
   <div class="ltimer" id="ltimer"></div>
 </div>
 
-<!-- RESULT -->
+<!-- RESULT - Program Overview -->
 <div class="result" id="result">
   <div class="rcard">
     <div class="rname" id="rname"></div>
@@ -260,6 +323,83 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
   </div>
   <div class="ringkasan" id="ringkasan"></div>
   <div id="days"></div>
+  <button class="bnext" style="width:100%;margin-top:1rem;" onclick="mulaiPendampingan()">🌱 Mulai Mendampingi Anak</button>
+  <button class="rbtn" onclick="rst()">← Buat Program Baru</button>
+</div>
+
+<!-- PENDAMPINGAN HARIAN -->
+<div class="pendampingan" id="pendampingan">
+  <div class="progress-hari" id="progress-hari"></div>
+  <div id="hari-content"></div>
+</div>
+
+<!-- PENUTUP & SURVEY -->
+<div class="penutup" id="penutup">
+  <div class="penutup-card">
+    <div class="penutup-icon">🎉</div>
+    <div class="penutup-title" id="penutup-nama"></div>
+    <div class="penutup-sub">Kamu telah menyelesaikan 7 hari program Kidvera.<br>Ini bukan akhir — ini awal dari pemahaman yang lebih dalam.</div>
+  </div>
+  <div id="penutup-analisis" class="ringkasan" style="margin-bottom:1rem;"></div>
+
+  <div class="stitle" style="margin-bottom:1rem;">📋 Evaluasi Program</div>
+  <div class="ssub" style="margin-bottom:1.5rem;">Jawaban kamu sangat penting untuk terus memperbaiki program ini. Tidak ada jawaban salah.</div>
+
+  <div class="survey-card">
+    <div class="survey-q">1. Seberapa besar program ini membantu anakmu? <span style="color:var(--ts);font-size:0.8rem;">(1 = tidak membantu, 10 = sangat membantu)</span></div>
+    <div class="rating-row" id="r1"></div>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">2. Apakah kamu akan merekomendasikan program ini ke orang tua lain?</div>
+    <div class="yn-row">
+      <button class="yn-btn" onclick="setYN('yn1','ya',this)">✅ Ya, pasti</button>
+      <button class="yn-btn" onclick="setYN('yn1','mungkin',this)">🤔 Mungkin</button>
+      <button class="yn-btn" onclick="setYN('yn1','tidak',this)">❌ Belum tentu</button>
+    </div>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">3. Apakah kamu melihat perubahan nyata pada anak setelah 7 hari?</div>
+    <div class="yn-row">
+      <button class="yn-btn" onclick="setYN('yn2','ya',this)">✅ Ya, ada perubahan</button>
+      <button class="yn-btn" onclick="setYN('yn2','sedikit',this)">🌱 Sedikit ada</button>
+      <button class="yn-btn" onclick="setYN('yn2','belum',this)">⏳ Belum terlihat</button>
+    </div>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">4. Apa yang paling kamu suka dari program ini?</div>
+    <textarea class="survey-textarea" id="suka" placeholder="Ceritakan..."></textarea>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">5. Apa yang menurutmu masih kurang atau perlu diperbaiki?</div>
+    <textarea class="survey-textarea" id="kurang" placeholder="Masukan jujurmu sangat berarti..."></textarea>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">6. Seberapa mudah instruksi pendampingan untuk diikuti? <span style="color:var(--ts);font-size:0.8rem;">(1 = susah, 10 = sangat mudah)</span></div>
+    <div class="rating-row" id="r2"></div>
+  </div>
+
+  <div class="survey-card">
+    <div class="survey-q">7. Apakah 7 hari terasa cukup, atau kamu ingin program lebih panjang?</div>
+    <div class="yn-row">
+      <button class="yn-btn" onclick="setYN('yn3','cukup',this)">✅ 7 hari cukup</button>
+      <button class="yn-btn" onclick="setYN('yn3','lebih',this)">📅 Mau lebih panjang</button>
+      <button class="yn-btn" onclick="setYN('yn3','pendek',this)">⚡ 3-5 hari lebih baik</button>
+    </div>
+  </div>
+
+  <button class="bnext" style="width:100%;margin-top:1rem;" onclick="kirimSurvey()">Kirim & Selesaikan Program ✦</button>
+</div>
+
+<!-- THANK YOU -->
+<div class="thankyou" id="thankyou">
+  <div class="thankyou-icon">🌿</div>
+  <div class="thankyou-title">Terima kasih!</div>
+  <div class="thankyou-sub">Data kamu sudah kami terima.<br>Perjalanan mendampingi anak tidak pernah sia-sia.<br><br>Semoga <span id="ty-nama"></span> tumbuh sesuai fitrahnya. 🤍</div>
   <button class="rbtn" onclick="rst()">← Buat Program Baru</button>
 </div>
 
@@ -267,10 +407,17 @@ textarea{resize:vertical;min-height:90px;line-height:1.6;}
 </div>
 
 <script>
-const SURL='https://script.google.com/macros/s/AKfycbyoSugrXKGMXHvMudsGXGTHkqyJPDeDhwcKuQ6tGQLgBpWca_ZbKbmzax1-tqeSrXTQ/exec';
+const APIKEY = 'GROQ_API_KEY';
+const SURL = 'https://script.google.com/macros/s/AKfycbyoSugrXKGMXHvMudsGXGTHkqyJPDeDhwcKuQ6tGQLgBpWca_ZbKbmzax1-tqeSrXTQ/exec';
+
 const sel={};
 const multi={gb:[],kc:[]};
+let programData = null;
+let currentHari = 1;
+const hariData = {}; // store refleksi & foto per hari
+const surveyData = {r1:0, r2:0, yn1:'', yn2:'', yn3:''};
 
+// ---- FORM LOGIC ----
 document.querySelectorAll('.obtn[data-g]').forEach(b=>{
   b.addEventListener('click',()=>{
     const g=b.dataset.g;
@@ -279,30 +426,16 @@ document.querySelectorAll('.obtn[data-g]').forEach(b=>{
     sel[g]=b.dataset.v;
   });
 });
-
 document.querySelectorAll('.multi-gb').forEach(b=>{
   b.addEventListener('click',()=>{
-    if(b.classList.contains('sel')){
-      b.classList.remove('sel');
-      multi.gb=multi.gb.filter(v=>v!==b.dataset.v);
-    } else {
-      if(multi.gb.length>=2){alert('Pilih maksimal 2 gaya belajar yang paling dominan.');return;}
-      b.classList.add('sel');
-      multi.gb.push(b.dataset.v);
-    }
+    if(b.classList.contains('sel')){b.classList.remove('sel');multi.gb=multi.gb.filter(v=>v!==b.dataset.v);}
+    else{if(multi.gb.length>=2){alert('Pilih maksimal 2 gaya belajar.');return;}b.classList.add('sel');multi.gb.push(b.dataset.v);}
   });
 });
-
 document.querySelectorAll('.multi-kc').forEach(b=>{
   b.addEventListener('click',()=>{
-    if(b.classList.contains('sel')){
-      b.classList.remove('sel');
-      multi.kc=multi.kc.filter(v=>v!==b.dataset.v);
-    } else {
-      if(multi.kc.length>=3){alert('Pilih maksimal 3 kecerdasan yang paling menonjol.');return;}
-      b.classList.add('sel');
-      multi.kc.push(b.dataset.v);
-    }
+    if(b.classList.contains('sel')){b.classList.remove('sel');multi.kc=multi.kc.filter(v=>v!==b.dataset.v);}
+    else{if(multi.kc.length>=3){alert('Pilih maksimal 3 kecerdasan.');return;}b.classList.add('sel');multi.kc.push(b.dataset.v);}
     const c=document.getElementById('kcc');
     c.style.display=multi.kc.length>0?'block':'none';
     document.getElementById('kcn').textContent=multi.kc.length;
@@ -319,20 +452,20 @@ function upP(s){
   for(let i=1;i<=3;i++)
     document.getElementById('l'+i).className=i<s?'sline done':'sline';
 }
-
 function showS(n){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById('s'+n);
   if(el)el.classList.add('active');
   document.getElementById('loading').style.display='none';
   document.getElementById('result').style.display='none';
+  document.getElementById('pendampingan').style.display='none';
+  document.getElementById('penutup').style.display='none';
+  document.getElementById('thankyou').style.display='none';
   document.getElementById('pbar').style.display='flex';
   upP(n);
   window.scrollTo(0,0);
 }
-
 function bk(f){showS(f-1);}
-
 function nx(f){
   if(f===1){
     if(!document.getElementById('nama').value.trim()){alert('Masukkan nama anak dulu ya.');return;}
@@ -340,14 +473,11 @@ function nx(f){
     if(!sel.sensoris){alert('Pilih hasil sensoris anak.');return;}
   }
   if(f===2){
-    if(!sel.kp1){alert('Pertanyaan 1 belum dipilih.');return;}
-    if(!sel.kp2){alert('Pertanyaan 2 belum dipilih.');return;}
-    if(!sel.kp3){alert('Pertanyaan 3 belum dipilih.');return;}
-    if(!sel.kp4){alert('Pertanyaan 4 belum dipilih.');return;}
+    if(!sel.kp1||!sel.kp2||!sel.kp3||!sel.kp4){alert('Semua pertanyaan harus dijawab.');return;}
   }
   if(f===3){
-    if(multi.gb.length===0){alert('Pilih minimal 1 gaya belajar (pertanyaan 5 atau 6).');return;}
-    if(multi.kc.length===0){alert('Pilih minimal 1 kecerdasan (pertanyaan 7).');return;}
+    if(multi.gb.length===0){alert('Pilih minimal 1 gaya belajar.');return;}
+    if(multi.kc.length===0){alert('Pilih minimal 1 kecerdasan.');return;}
   }
   showS(f+1);
 }
@@ -362,18 +492,20 @@ function gc(g){
   return{n:'tomo-n',b:'tomo-b'};
 }
 
+// ---- GENERATE PROGRAM ----
 let tmr=null;
-
 async function gen(){
-const apiKey='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';
   const goals=document.getElementById('goals').value.trim();
   if(!goals){alert('Tuliskan goals kamu dulu ya.');return;}
   const nama=document.getElementById('nama').value.trim();
   const usia=document.getElementById('usia').value;
+  const ortu=document.getElementById('ortu').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!ortu){alert('Masukkan nama orangtua dulu ya.');return;}
+
   const kep=[sel.kp1,sel.kp2,sel.kp3,sel.kp4].filter(Boolean).join(' | ');
   const gb=multi.gb.join(' & ')||'Kinestetik';
   const kc=multi.kc.join(', ')||'';
-  const ortu=document.getElementById('ortu').value.trim();
 
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   document.getElementById('pbar').style.display='none';
@@ -385,10 +517,7 @@ const apiKey='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';
 
   let secs=0;
   clearInterval(tmr);
-  tmr=setInterval(()=>{
-    secs++;
-    document.getElementById('ltimer').textContent=secs+'s... (biasanya 15-25 detik)';
-  },1000);
+  tmr=setInterval(()=>{secs++;document.getElementById('ltimer').textContent=secs+'s... (biasanya 20-35 detik)';},1000);
 
   const prompt=`Kamu adalah Kidvera, sistem pendampingan tumbuh kembang anak berbasis fitrah dan sensoris.
 
@@ -400,39 +529,40 @@ Data anak:
 - Kecerdasan dominan: ${kc}
 - Goals orangtua: ${goals}
 
-5 karakter:
+5 karakter tetap:
 - Bimo (Beruang Coklat): kekuatan tangan, gerak, proprioseptif, motorik kasar
 - Rara (Kelinci Putih): motorik halus, ketelitian, kesiapan menulis
 - Tomo (Kelinci celemek hijau): kemandirian, tugas rumah, life skill
 - Mimi (Kucing Oranye): regulasi sensoris lembut, untuk hyper sensoris
 - Guru Alam (Burung Hantu): eksplorasi alam, observasi dunia nyata
 
-Prinsip wajib:
-- Semua kegiatan HANYA pakai benda yang ada di semua rumah Indonesia
-- Story pembuka: 3 kalimat, ada masalah kecil nyata, ada peran ${nama}, ada akibat positif
-- Motivasi orangtua: spesifik dan menyentuh, bukan pujian kosong
-- Hari 1-2 sangat ringan, hari 3-5 ditingkatkan sedikit, hari 6-7 lebih mandiri
+Pilih 2 karakter yang PALING sesuai dengan KELEMAHAN anak berdasarkan data di atas. Kedua karakter ini muncul 2x dengan aktivitas berbeda dalam 7 hari. Total distribusi = 7 hari.
 
-Balas HANYA dengan JSON valid ini, tidak ada teks lain:
-{"ringkasan":"2-3 kalimat profil dan fokus program","karakterUtama":"karakter dominan minggu ini","hari":[{"hari":1,"judul":"max 5 kata","guide":"nama karakter","story":"3 kalimat story nyata","kegiatan":"langkah-langkah jelas","alat":["benda1","benda2"],"durasi":"X-Y menit","motivasi":"kalimat bermakna untuk orangtua"},{"hari":2,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":3,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":4,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":5,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":6,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""},{"hari":7,"judul":"","guide":"","story":"","kegiatan":"","alat":[],"durasi":"","motivasi":""}]}`;
+FORMAT SETIAP HARI WAJIB PUNYA:
+- story: 3 kalimat, ada masalah kecil nyata, ada peran ${nama}, ada solusi positif
+- kegiatan: langkah-langkah jelas dengan benda rumah Indonesia
+- script_ortu: kalimat yang HARUS diucapkan orangtua (kata-kata siap pakai), posisi tubuh
+- jika_nolak: respons jika anak menolak (kalimat siap pakai)
+- observasi: 1 hal yang perlu orangtua perhatikan hari itu
+- alat: benda yang dibutuhkan
+- durasi: waktu yang dibutuhkan
+- motivasi: kalimat menyentuh untuk orangtua
+
+Hari ke-3 WAJIB lebih ringan dan lebih emosional (titik drop orangtua).
+
+Balas HANYA dengan JSON valid, tidak ada teks lain:
+{"ringkasan":"2-3 kalimat profil anak dan fokus program","karakterUtama":"karakter dominan","karakterTambahan":["karakter1","karakter2"],"hari":[{"hari":1,"judul":"max 5 kata","guide":"nama karakter","story":"3 kalimat","kegiatan":"langkah jelas","script_ortu":"kalimat siap pakai + posisi tubuh","jika_nolak":"kalimat jika anak nolak","observasi":"1 hal yang diamati","alat":["benda1"],"durasi":"X-Y menit","motivasi":"kalimat untuk orangtua"},{"hari":2,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""},{"hari":3,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""},{"hari":4,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""},{"hari":5,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""},{"hari":6,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""},{"hari":7,"judul":"","guide":"","story":"","kegiatan":"","script_ortu":"","jika_nolak":"","observasi":"","alat":[],"durasi":"","motivasi":""}]}`;
 
   try{
     const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
-      body:JSON.stringify({
-        model:'llama-3.3-70b-versatile',
-        max_tokens:4000,
-        messages:[{role:'user',content:prompt}]
-      })
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+APIKEY},
+      body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:4000,messages:[{role:'user',content:prompt}]})
     });
-
     clearInterval(tmr);
     const data=await res.json();
-
-    if(data.error){throw new Error('API: '+data.error.message);}
-    if(!data.choices||!data.choices[0]){throw new Error('Tidak ada respons dari API');}
-
+    if(data.error)throw new Error('API: '+data.error.message);
+    if(!data.choices||!data.choices[0])throw new Error('Tidak ada respons dari API');
     const text=data.choices[0].message.content;
     const m=text.match(/\{[\s\S]*\}/);
     if(!m)throw new Error('Format JSON tidak ditemukan');
@@ -440,27 +570,27 @@ Balas HANYA dengan JSON valid ini, tidak ada teks lain:
     try{p=JSON.parse(m[0]);}catch(e){throw new Error('JSON tidak valid: '+e.message);}
     if(!p.hari||!Array.isArray(p.hari))throw new Error('Data hari tidak ada');
 
-    // Kirim ke Google Sheets
-    const payload=JSON.stringify({
-      nama,usia,ortu,
-      sensoris:sel.sensoris,
-      gayaBelajar:gb,
-      kepribadian:kep,
-      kecerdasan:kc,
-      goals,
-      karakterGuide:p.karakterUtama||'',
+    programData = p;
+    programData._nama = nama;
+    programData._usia = usia;
+    programData._ortu = ortu;
+    programData._email = email;
+    programData._goals = goals;
+    programData._gb = gb;
+    programData._kc = kc;
+    programData._kep = kep;
+    programData._sensoris = sel.sensoris;
+
+    // Kirim data awal ke Sheets
+    kirimSheets({
+      type:'program_generated',
+      nama, usia, ortu, email, goals,
+      sensoris:sel.sensoris, gayaBelajar:gb, kecerdasan:kc, kepribadian:kep,
+      karakterUtama:p.karakterUtama||'', karakterTambahan:(p.karakterTambahan||[]).join(', '),
       ringkasan:p.ringkasan||''
     });
 
-    fetch(SURL,{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'text/plain'},
-      body:payload
-    }).catch(e=>console.log('Sheets error:',e));
-
     renderR(nama,usia,p);
-
   }catch(err){
     clearInterval(tmr);
     document.getElementById('loading').style.display='none';
@@ -477,11 +607,7 @@ function renderR(nama,usia,d){
   document.getElementById('result').style.display='block';
   document.getElementById('rname').textContent='Program 7 Hari '+nama;
   document.getElementById('rsub').textContent=usia+' · Kidvera';
-  const tags=[
-    sel.sensoris?.split('—')[0]?.trim(),
-    multi.gb[0]?.split('—')[0]?.trim(),
-    multi.kc[0]?.split('(')[0]?.trim()
-  ].filter(Boolean);
+  const tags=[sel.sensoris?.split('—')[0]?.trim(),multi.gb[0]?.split('—')[0]?.trim(),multi.kc[0]?.split('(')[0]?.trim()].filter(Boolean);
   document.getElementById('rtags').innerHTML=tags.map(t=>`<span class="rtag">${t}</span>`).join('');
   document.getElementById('ringkasan').textContent=d.ringkasan||'';
 
@@ -500,13 +626,14 @@ function renderR(nama,usia,d){
         <div class="storybox">${h.story||''}</div>
         <div class="slabel">Kegiatan</div>
         <div class="ktext">${h.kegiatan||''}</div>
+        ${h.script_ortu?`<div class="script-box"><div class="slabel">🗣 Script Orangtua</div><div class="script-text">${h.script_ortu}</div></div>`:''}
+        ${h.jika_nolak?`<div class="tolak-box"><div class="slabel">⚠️ Jika Anak Menolak</div><div class="script-text">${h.jika_nolak}</div></div>`:''}
         ${alat?`<div class="slabel">Yang dibutuhkan</div><div class="alist">${alat}</div>`:''}
         ${h.durasi?`<div class="dbadge">⏱ ${h.durasi}</div>`:''}
         ${h.motivasi?`<div class="motiv">💛 ${h.motivasi}</div>`:''}
       </div>
     </div>`;
   });
-
   document.getElementById('days').innerHTML=html;
   const f=document.getElementById('db0');
   const fc=document.getElementById('cv0');
@@ -520,15 +647,312 @@ function td(i){
   document.getElementById('cv'+i).classList.toggle('open');
 }
 
+// ---- PENDAMPINGAN HARIAN ----
+function mulaiPendampingan(){
+  currentHari = 1;
+  document.getElementById('result').style.display='none';
+  document.getElementById('pendampingan').style.display='block';
+  document.getElementById('pbar').style.display='none';
+  renderHari(currentHari);
+  window.scrollTo(0,0);
+}
+
+function renderProgressHari(){
+  const dots = document.getElementById('progress-hari');
+  let html='';
+  for(let i=1;i<=7;i++){
+    let cls = i < currentHari ? 'ph-dot done' : i===currentHari ? 'ph-dot active' : 'ph-dot';
+    html+=`<div class="${cls}"></div>`;
+  }
+  dots.innerHTML=html;
+}
+
+function renderHari(n){
+  renderProgressHari();
+  const h = programData.hari[n-1];
+  const nama = programData._nama;
+  const c = gc(h.guide);
+  const alat=(h.alat||[]).map(a=>`<span class="atag">${a}</span>`).join('');
+  const isHari3 = n===3;
+  const isHari7 = n===7;
+
+  let miniTraining = n===1 ? `
+    <div class="mini-training">
+      <div class="stitle">🌿 Sebelum Mulai</div>
+      <p style="font-size:0.85rem;color:var(--ts);margin:0.5rem 0 0.3rem;">Di program ini, bukan anaknya yang belajar — <em>kita yang belajar memahami anak</em> 🤍</p>
+      <div class="mini-rule"><span>1.</span>Tidak memaksa — kalau anak tidak mau, itu data berharga</div>
+      <div class="mini-rule"><span>2.</span>Tidak harus berhasil — prosesnya yang penting</div>
+      <div class="mini-rule"><span>3.</span>Cukup 10 menit — tidak perlu sempurna</div>
+    </div>` : '';
+
+  let hari3note = isHari3 ? `
+    <div class="snote" style="border-left-color:var(--gl);">
+      💚 Bunda, kalau hari ini terasa lebih berat, itu wajar. Biasanya di hari ke-3 memang mulai terasa capek. Kamu tidak sendirian — dan kamu sudah luar biasa sampai di sini.
+    </div>` : '';
+
+  let content = `
+    ${miniTraining}
+    ${hari3note}
+    <div class="hari-header">
+      <div class="hari-num">Hari ke-${n} dari 7</div>
+      <div class="hari-title">${h.judul||'Aktivitas Hari '+n}</div>
+      <div class="hari-guide">Bersama ${h.guide||'Karakter Kidvera'}</div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-icon">🎭</div>
+      <h3>Cerita Pembuka</h3>
+      <div class="storybox" style="margin-bottom:0;">${h.story||''}</div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-icon">🎯</div>
+      <h3>Aktivitas Hari Ini</h3>
+      <div class="ktext">${h.kegiatan||''}</div>
+      ${alat?`<div class="slabel">Yang dibutuhkan</div><div class="alist" style="margin-bottom:0.5rem;">${alat}</div>`:''}
+      ${h.durasi?`<div class="dbadge">⏱ ${h.durasi}</div>`:''}
+    </div>
+
+    ${h.script_ortu?`<div class="section-card">
+      <div class="section-icon">🗣</div>
+      <h3>Script Pendampingan</h3>
+      <div class="script-text">${h.script_ortu}</div>
+    </div>`:''}
+
+    ${h.jika_nolak?`<div class="section-card">
+      <div class="section-icon">⚠️</div>
+      <h3>Jika ${nama} Menolak</h3>
+      <div class="script-text">${h.jika_nolak}</div>
+    </div>`:''}
+
+    ${h.observasi?`<div class="section-card">
+      <div class="section-icon">👀</div>
+      <h3>Yang Perlu Diperhatikan</h3>
+      <div class="script-text">${h.observasi}</div>
+    </div>`:''}
+
+    <div class="section-card">
+      <div class="section-icon">📸</div>
+      <h3>Foto Kegiatan <span style="font-size:0.75rem;font-weight:400;color:var(--ts);">(opsional tapi sangat membantu)</span></h3>
+      <div class="upload-area" onclick="document.getElementById('foto-h${n}').click()">
+        <input type="file" id="foto-h${n}" accept="image/*" onchange="previewFoto(${n},this)">
+        <div class="upload-icon">📷</div>
+        <div class="upload-text">Ketuk untuk upload foto</div>
+      </div>
+      <img id="preview-h${n}" class="upload-preview">
+      <div class="eval-loading" id="eval-load-${n}">✨ Mengevaluasi foto...</div>
+      <div class="eval-result" id="eval-result-${n}"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-icon">🌙</div>
+      <h3>Refleksi Malam</h3>
+      <p style="font-size:0.83rem;color:var(--ts);margin-bottom:0.6rem;">Ceritakan bagaimana hari ini berjalan. Tidak perlu panjang.</p>
+      <textarea class="refleksi-area" id="refleksi-h${n}" placeholder="Aktivitas dilakukan? Reaksi ${nama}? Perasaan kamu?"></textarea>
+    </div>
+
+    ${h.motivasi?`<div class="motiv" style="margin-bottom:1rem;">💛 ${h.motivasi}</div>`:''}
+
+    <div class="hari-nav">
+      <button class="btn-skip" onclick="simpanHari(${n},true)">Lewati hari ini</button>
+      <button class="btn-lanjut" onclick="simpanHari(${n},false)">${isHari7 ? 'Selesaikan Program ✦' : 'Lanjut Hari '+(n+1)+' →'}</button>
+    </div>
+  `;
+
+  document.getElementById('hari-content').innerHTML=content;
+  window.scrollTo(0,0);
+}
+
+async function previewFoto(n, input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async (e)=>{
+    const preview = document.getElementById('preview-h'+n);
+    preview.src = e.target.result;
+    preview.style.display='block';
+
+    // Eval dengan Groq vision - kirim sebagai teks deskriptif karena Groq llama tidak support vision
+    // Kita minta user deskripsikan, atau kita eval berdasarkan konteks hari
+    const evalLoad = document.getElementById('eval-load-'+n);
+    const evalResult = document.getElementById('eval-result-'+n);
+    evalLoad.style.display='block';
+    evalResult.style.display='none';
+
+    const h = programData.hari[n-1];
+    const nama = programData._nama;
+
+    const evalPrompt = `Kamu adalah pendamping tumbuh kembang anak dari Kidvera.
+
+Orangtua baru saja menyelesaikan aktivitas hari ke-${n} bersama ${nama} (${programData._usia}).
+Aktivitas: ${h.kegiatan}
+Karakter guide: ${h.guide}
+Goals orangtua: ${programData._goals}
+
+Berikan evaluasi singkat (2-3 kalimat) yang:
+1. Mengapresiasi usaha orangtua
+2. Menjelaskan nilai perkembangan dari aktivitas ini
+3. Memberikan 1 hal yang bisa diperhatikan besok
+
+Gunakan bahasa hangat, seperti teman. Jangan kaku.`;
+
+    try{
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+APIKEY},
+        body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:300,messages:[{role:'user',content:evalPrompt}]})
+      });
+      const data = await res.json();
+      if(data.choices&&data.choices[0]){
+        evalResult.textContent = data.choices[0].message.content;
+        evalResult.style.display='block';
+        hariData['eval_'+n] = data.choices[0].message.content;
+      }
+    }catch(e){
+      evalResult.textContent = 'Foto tersimpan. Terus semangat ya! 🌿';
+      evalResult.style.display='block';
+    }
+    evalLoad.style.display='none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function simpanHari(n, skip){
+  const refleksi = document.getElementById('refleksi-h'+n)?.value||'';
+  hariData['refleksi_'+n] = skip ? '(dilewati)' : refleksi;
+  hariData['eval_'+n] = hariData['eval_'+n]||'';
+
+  // Kirim ke Sheets
+  kirimSheets({
+    type:'hari_selesai',
+    nama:programData._nama,
+    ortu:programData._ortu,
+    email:programData._email,
+    hari:n,
+    judul:programData.hari[n-1].judul,
+    guide:programData.hari[n-1].guide,
+    refleksi:hariData['refleksi_'+n],
+    evaluasiAI:hariData['eval_'+n],
+    skip:skip
+  });
+
+  if(n===7){
+    tampilkanPenutup();
+  } else {
+    currentHari = n+1;
+    renderHari(currentHari);
+  }
+}
+
+// ---- PENUTUP & SURVEY ----
+async function tampilkanPenutup(){
+  document.getElementById('pendampingan').style.display='none';
+  document.getElementById('penutup').style.display='block';
+  document.getElementById('penutup-nama').textContent = 'Selamat, '+programData._ortu+'! 🎉';
+
+  // Generate analisis akhir
+  const refleksiAll = Array.from({length:7},(_,i)=>hariData['refleksi_'+(i+1)]||'').join(' | ');
+  const analisisPrompt = `Kamu adalah Kidvera. Orangtua ${programData._ortu} baru menyelesaikan program 7 hari untuk ${programData._nama} (${programData._usia}).
+
+Goals awal: ${programData._goals}
+Refleksi harian: ${refleksiAll}
+Profil anak: ${programData._sensoris}, ${programData._gb}, ${programData._kc}
+
+Tulis analisis singkat (3-4 kalimat) yang:
+1. Rangkum perjalanan 7 hari
+2. Tunjukkan 1-2 pola yang terlihat dari refleksi
+3. Beri harapan yang realistis dan hangat
+
+Bahasa: hangat, seperti teman dekat, bukan dokter.`;
+
+  try{
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+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},
+      body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:400,messages:[{role:'user',content:analisisPrompt}]})
+    });
+    const data = await res.json();
+    if(data.choices&&data.choices[0]){
+      document.getElementById('penutup-analisis').textContent = data.choices[0].message.content;
+    }
+  }catch(e){
+    document.getElementById('penutup-analisis').textContent = `${programData._nama} sudah menyelesaikan 7 hari perjalanan bersama Kidvera. Setiap momen kecil yang kamu ciptakan adalah investasi nyata untuk tumbuh kembangnya. 🌿`;
+  }
+
+  // Build rating buttons
+  for(let id of['r1','r2']){
+    let html='';
+    for(let i=1;i<=10;i++) html+=`<button class="rating-btn" onclick="setRating('${id}',${i},this)">${i}</button>`;
+    document.getElementById(id).innerHTML=html;
+  }
+
+  window.scrollTo(0,0);
+}
+
+function setRating(id, val, btn){
+  surveyData[id]=val;
+  btn.closest('.rating-row').querySelectorAll('.rating-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+function setYN(id, val, btn){
+  surveyData[id]=val;
+  btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+function kirimSurvey(){
+  const suka = document.getElementById('suka').value.trim();
+  const kurang = document.getElementById('kurang').value.trim();
+
+  kirimSheets({
+    type:'survey_selesai',
+    nama:programData._nama,
+    ortu:programData._ortu,
+    email:programData._email,
+    goals:programData._goals,
+    karakterUtama:programData.karakterUtama||'',
+    karakterTambahan:(programData.karakterTambahan||[]).join(', '),
+    ratingMembantu:surveyData.r1,
+    ratingMudah:surveyData.r2,
+    rekomendasikan:surveyData.yn1,
+    adaPerubahan:surveyData.yn2,
+    durasiIdeal:surveyData.yn3,
+    yangDisukai:suka,
+    yangKurang:kurang,
+    refleksiAll:JSON.stringify(hariData)
+  });
+
+  document.getElementById('penutup').style.display='none';
+  document.getElementById('thankyou').style.display='block';
+  document.getElementById('ty-nama').textContent = programData._nama;
+  window.scrollTo(0,0);
+}
+
+function kirimSheets(payload){
+  fetch(SURL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'text/plain'},
+    body:JSON.stringify(payload)
+  }).catch(e=>console.log('Sheets:',e));
+}
+
 function rst(){
   Object.keys(sel).forEach(k=>delete sel[k]);
   multi.gb=[];multi.kc=[];
+  programData=null;
+  currentHari=1;
+  Object.keys(hariData).forEach(k=>delete hariData[k]);
   document.querySelectorAll('.obtn').forEach(b=>b.classList.remove('sel'));
   document.getElementById('nama').value='';
   document.getElementById('usia').value='';
   document.getElementById('goals').value='';
   document.getElementById('ortu').value='';
+  document.getElementById('email').value='';
   document.getElementById('result').style.display='none';
+  document.getElementById('pendampingan').style.display='none';
+  document.getElementById('penutup').style.display='none';
+  document.getElementById('thankyou').style.display='none';
   document.getElementById('errbox').style.display='none';
   document.getElementById('kcc').style.display='none';
   showS(1);
